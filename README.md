@@ -1,46 +1,97 @@
-🌐 Zyra – Secure Chat Application
+Zyra - Real-time Communication Platform
+A high-performance and secure chat application built as a full-stack portfolio project, featuring real-time messaging, file sharing, and high-quality audio/video calls. This platform is designed to showcase modern web development practices and a robust, scalable architecture.
 
-Zyra is a modern, secure, and scalable chat application designed for end-to-end encrypted messaging, seamless file sharing, and high-quality audio/video calls.
-Built with Next.js on the frontend and Node.js + Express + MongoDB on the backend, Zyra aims to provide a fast, reliable, and user-friendly communication platform.
+🌟 Key Features
+Secure & Encrypted Messaging: Experience secure, end-to-end encrypted messaging to ensure privacy in every conversation.
 
-✨ Features
+Real-time Communication: Enjoy lightning-fast chat with a dedicated real-time backend for instant message delivery and notifications.
 
-🔐 Authentication System – Sign up, Sign in, and OTP verification
+Rich File Sharing: Easily share images, videos, and other files with a robust and efficient file handling system.
 
-💬 Real-time Messaging with WebSockets
+User Management: Comprehensive user authentication, profile management, and account settings.
 
-📂 File Sharing – Share images, videos, and documents
-
-🎥 Audio & Video Calls with crystal clear quality
-
-🔒 End-to-End Encryption for secure communication
-
-📱 Responsive Design – Works across devices
+Scalable Architecture: Built with a microservices approach to handle a large number of concurrent users and data.
 
 🛠️ Tech Stack
-
 Frontend
+React.js: The core UI library for a dynamic and responsive user interface.
 
-Next.js (React)
+Next.js: A powerful React framework for server-side rendering and routing, ensuring optimal performance and SEO.
 
-TailwindCSS
-
-Axios
+Expo (Future): Planned for a cross-platform mobile application to extend functionality to iOS and Android devices.
 
 Backend
+Node.js with Express: A fast and minimalist web framework for building RESTful APIs.
 
-Node.js + Express
+Bun.js: Utilized for high-performance file handling and management of images and videos.
 
-MongoDB (Dockerized)
+Rust with Axum: The real-time chat system and notification service are built with Rust's Axum framework for unmatched speed and security.
 
-JWT Authentication
+Databases & Caching
+PostgreSQL: Used as the primary relational database for structured data like user profiles and settings.
 
-Socket.io
+MongoDB: A NoSQL database specifically for storing unstructured data, like chat conversations, for flexibility and scalability.
 
-Development Tools
+Redis: Implemented for in-memory data caching to significantly improve application performance and reduce database load.
 
-pnpm
+🚀 Getting Started
+Follow these steps to get your development environment set up locally.
 
-Docker
+Prerequisites
+Make sure you have the following installed on your machine:
 
-GitHub
+Node.js & npm (or yarn)
+
+Rust & Cargo
+
+Bun.js
+
+PostgreSQL
+
+MongoDB
+
+Redis
+
+Installation
+Clone the repository:
+
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+cd your-repo-name
+
+Set up the backend:
+
+# Navigate to the backend directory
+cd backend
+npm install
+# Set up your environment variables (.env file)
+# Start the Node.js server
+npm run start
+
+Set up the real-time server:
+
+# Navigate to the real-time server directory
+cd realtime-server
+cargo run
+
+Set up the frontend:
+
+# Navigate to the frontend directory
+cd frontend
+npm install
+npm run dev
+
+📂 Project Structure
+├── backend/                  # Node.js Express API
+│   ├── routes/
+│   ├── controllers/
+│   └── ...
+├── realtime-server/          # Rust Axum real-time chat service
+│   ├── src/
+│   └── ...
+├── frontend/                 # Next.js application
+│   ├── pages/
+│   ├── components/
+│   └── ...
+├── bun-file-handler/         # Bun.js file handling service
+├── README.md                 # This file
+└── ...
