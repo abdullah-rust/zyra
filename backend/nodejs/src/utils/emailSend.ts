@@ -1,17 +1,25 @@
-import { Resend } from "resend";
+// mailer.ts
+import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const resend = new Resend(process.env.EMAIL_API_KEY);
+// Transporter create karo
+const transporter = nodemailer.createTransport({
+  service: "gmail", // agar Gmail use kar rahe ho
+  auth: {
+    user: process.env.EMAIL_USER, // tumhari email
+    pass: process.env.EMAIL_PASS, // app password (normal password nahi chalega Gmail ke liye)
+  },
+});
 
 export async function sendVerificationEmail(
   email: string,
   code: string
 ): Promise<boolean> {
   try {
-    await resend.emails.send({
-      from: "onboarding@resend.dev",
+    await transporter.sendMail({
+      from: `"Zyra" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: "Zyra Verification Code",
       html: `
