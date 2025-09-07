@@ -9,7 +9,11 @@ const app = express();
 
 // CORS options
 const corsOptions = {
+<<<<<<< HEAD
   origin: "http://localhost:3000", // frontend ka origin
+=======
+  origin: "http://localhost:5173", // frontend ka origin
+>>>>>>> 836c593 (first commit)
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true, // cookies, auth headers allow karne ke liye
 };
