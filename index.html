@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Login Status</title>
+  </head>
+  <body>
+    <h1>Login Status Test</h1>
+    <button id="checkStatus">Check Login Status</button>
+    <p id="status"></p>
+
+    <script>
+      const btn = document.getElementById("checkStatus");
+      const statusEl = document.getElementById("status");
+
+      btn.addEventListener("click", async () => {
+        try {
+          const response = await fetch("http://localhost:4000/api/me", {
+            method: "GET",
+            credentials: "include", // ensures cookies are sent
+          });
+
+          const data = await response.json();
+
+          if (data.loggedIn) {
+            statusEl.textContent = "✅ User is logged in!";
+          } else {
+            statusEl.textContent = "❌ User is NOT logged in!";
+          }
+        } catch (err) {
+          statusEl.textContent = "⚠️ Error checking login status";
+          console.error(err);
+        }
+      });
+    </script>
+  </body>
+</html>

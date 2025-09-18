@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zyra</title>
+    <style>
+      /* Yeh hai hamari animation ka code */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        font-family: sans-serif;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #1a212e, #0a121d);
+        color: #fff; /* Text ka color white kar rahe hain taake woh dikhe */
+      }
+
+      .loader {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #1a212ea8;
+        backdrop-filter: blur(5px); /* Yeh line naye hai */
+        -webkit-backdrop-filter: blur(5px); /* Safari ke liye */
+        z-index: 50;
+      }
+      .loader img {
+        width: 120px;
+        /* translate ko yahan se hata denge */
+        animation: pulse 0.5s infinite alternate;
+        z-index: 51;
+      }
+      @keyframes pulse {
+        from {
+          transform: scale(0.95); /* Thoda chhota ho kar shuru karega */
+        }
+        to {
+          transform: scale(1.1); /* Thoda bada ho kar khatam hoga */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading-screen">
+      <div class="loader">
+        <img src="/logo.png" alt="Zyra Logo" />
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+<!-- :80 { route { # User profile aur authentication ke liye handle_path /api/user/*
+{ reverse_proxy 10.228.92.186:4000 } # Chat service ke liye handle_path
+/api/chat/* { reverse_proxy 10.228.92.186:4001 } # File handling service ke liye
+handle_path /api/files/* { reverse_proxy 10.228.92.186:4002 } # Frontend ke liye
+(baqi sab requests) handle { reverse_proxy 10.228.92.186:5173 } } } -->

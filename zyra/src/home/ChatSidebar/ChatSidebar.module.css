@@ -1,0 +1,117 @@
+/* Sidebar ka main container */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 350px;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px 0;
+  z-index: 48;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar ka title */
+.sidebarTitle {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 20px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+}
+
+/* Search bar ka container */
+.searchBarContainer {
+  padding: 0 20px 20px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #6820eec5;
+}
+
+/* Chat list ka container */
+.chatList {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Har chat item */
+.chatItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 1px 20px;
+  cursor: pointer;
+  border-left: 5px solid transparent;
+  transition: background-color 0.2s ease, border-left-color 0.2s ease;
+  background-color: rgb(31, 43, 66);
+  margin-top: 5px;
+}
+
+.chatItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatItem.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left-color: #7037dac5;
+}
+
+.profileIcon {
+  font-size: 2rem;
+  color: #00d2ff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Icon ko shrink hone se roken */
+}
+
+.chatInfo {
+  flex-grow: 1;
+  min-width: 0; /* Overflow ke liye zaroori */
+}
+
+.chatName {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.img {
+  width: 55px;
+}
+
+.newMessage {
+  margin-bottom: 20px;
+  margin-left: 230px;
+  background-color: #11a703;
+  text-align: center;
+  border-radius: 50%;
+  padding: 2px;
+}

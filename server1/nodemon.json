@@ -1,0 +1,7 @@
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "ignore": ["dist"],
+  "exec": "ts-node src/index.ts",
+  "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
+}
