@@ -20,6 +20,8 @@
         min-height: 100vh;
         background: linear-gradient(135deg, #1a212e, #0a121d);
         color: #fff; /* Text ka color white kar rahe hain taake woh dikhe */
+        scrollbar-width: thin; /* Firefox ke liye */
+        scrollbar-color: #6820eec5 #1a1a1a;
       }
 
       .loader {
@@ -47,6 +49,23 @@
         to {
           transform: scale(1.1); /* Thoda bada ho kar khatam hoga */
         }
+      }
+
+      /* Chrome, Safari, aur Edge ke liye */
+      ::-webkit-scrollbar {
+        width: 10px; /* Scrollbar ki width */
+      }
+
+      /* Scrollbar ka track */
+      ::-webkit-scrollbar-track {
+        background: #1a1a1a; /* Dark background color */
+      }
+
+      /* Scrollbar ka thumb */
+      ::-webkit-scrollbar-thumb {
+        background-color: #00d2ff; /* Aapki pasand ka color */
+        border-radius: 6px;
+        border: 2px solid #1a1a1a;
       }
     </style>
   </head>

@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  message_vault:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: message_vault_service
+    ports:
+      - "4003:4003" # ✅ Host:Container port mapping
+    restart: always
+    env_file: # ✅ yahan hona chahiye, service ke andar
+      - .env

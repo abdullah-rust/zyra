@@ -6,6 +6,7 @@ interface ChatMessage {
   fromUsername: string;
   content: string;
   timestamp?: string;
+  type: string;
 }
 
 export default async function ChatHandler(io: Server, socket: Socket) {

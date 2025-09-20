@@ -9,7 +9,6 @@ export default function Header() {
       <div className={styles.appTitle}>Zyra</div>
 
       <div className={styles.icons}>
-        <span className={styles.icon}>🔔</span>
         <span onClick={() => navigate("/profile")}>
           <img
             src={img_link || profileIcon}

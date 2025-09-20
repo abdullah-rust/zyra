@@ -7,13 +7,14 @@ import dotenv from "dotenv";
 import ChatHandler from "./chat/chatSocket";
 import { checkJwt } from "./middleware/checkjwt";
 import cors from "cors";
-
+import router from "./router/routes";
 dotenv.config();
 
 const app = express();
-const PORT: number = Number(process.env["PORT"]) || 3000;
+const PORT: number = Number(process.env["PORT"]) || 4001;
 
 app.use(express.json());
+app.use("/", router);
 const server = http.createServer(app);
 const subClient = redis.duplicate();
 
