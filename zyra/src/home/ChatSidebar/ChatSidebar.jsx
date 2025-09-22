@@ -1,6 +1,6 @@
 import styles from "./ChatSidebar.module.css";
 import { useState, useEffect } from "react";
-import api from "../../global/api";
+import { api } from "../../global/api";
 import profileIcon from "../../assets/profile.png";
 import {
   ensureObjectStore,

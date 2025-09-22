@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./Otp.module.css";
-import api from "../../global/api";
+import { api } from "../../global/api";
 import Alert from "../../others/alert/Alert";
 
 export default function Otp() {

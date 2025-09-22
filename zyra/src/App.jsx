@@ -26,33 +26,3 @@ function App() {
 }
 
 export default App;
-
-// import * as Dialog from "@radix-ui/react-dialog";
-
-// function OverlayExample() {
-//   return (
-//     <Dialog.Root>
-//       {/* Trigger (button ya event se khulega) */}
-//       <Dialog.Trigger className="p-2 bg-blue-600 text-white rounded">
-//         Open Overlay
-//       </Dialog.Trigger>
-
-//       {/* Overlay */}
-//       <Dialog.Portal>
-//         <Dialog.Overlay className="fixed inset-0 bg-black/60" />
-//         <Dialog.Content className="fixed inset-0 bg-white p-6">
-//           <Dialog.Title className="text-xl font-bold">My Overlay</Dialog.Title>
-//           <Dialog.Description>
-//             Ye ek full screen overlay hai bina route change kiye 🚀
-//           </Dialog.Description>
-
-//           <div className="mt-4">
-//             <Dialog.Close className="p-2 bg-red-600 text-white rounded">
-//               Close
-//             </Dialog.Close>
-//           </div>
-//         </Dialog.Content>
-//       </Dialog.Portal>
-//     </Dialog.Root>
-//   );
-// }

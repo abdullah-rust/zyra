@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
-import api from "../global/api";
+import { api } from "../global/api";
 
 const SOCKET_SERVER_URL = "zyra.local";
 

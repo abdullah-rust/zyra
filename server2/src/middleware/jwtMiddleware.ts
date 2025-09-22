@@ -6,7 +6,7 @@ import {
   createAccessToken,
 } from "../utils/jwt";
 
-export async function verifyJwt(
+export async function CheckJwt(
   req: Request,
 
   res: Response,
@@ -31,7 +31,6 @@ export async function verifyJwt(
     if (decodeaccess) {
       (req as any).user = {
         userId: decodeaccess.userId,
-
         username: decodeaccess.username,
       };
 

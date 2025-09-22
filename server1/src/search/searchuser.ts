@@ -29,10 +29,7 @@ export async function searchusers(req: Request, res: Response) {
           try {
             const parsedUser = JSON.parse(user);
             results.push(parsedUser);
-          } catch (parseError) {
-            // Agar JSON.parse fail ho jaye to is key ko skip kar do
-            console.warn(`Skipping key ${key}: Value is not valid JSON`);
-          }
+          } catch (_parseError) {}
         }
       }
     } while (cursor !== 0);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./profile.module.css";
-import api from "../global/api";
+import { api } from "../global/api";
 import profileIcon from "../assets/profile.png";
 export default function Profile() {
   const [userData, setUserData] = useState(null);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Signup.module.css";
-import api from "../../global/api";
+import { api } from "../../global/api";
 import Alert from "../../others/alert/Alert";
 
 export default function Signup() {

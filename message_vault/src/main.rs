@@ -14,9 +14,11 @@ mod routes;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Message {
-    pub id: String,
-    pub sender_id: String,
-    pub receiver_id: String,
+    pub message_id: String,
+    pub message_status: String,
+    pub username: String,
+    pub sender_username: String,
+    pub receiver_username: String,
     pub content: String,
     pub content_type: String,
     pub time_stamp: String,
@@ -62,26 +64,21 @@ async fn background_worker(state: AppState) {
             let mut data = state.data.lock().await;
             let now = Utc::now();
 
-            // Collect keys jo expire ho chuke hain
             let mut expired_keys = Vec::new();
 
             for (key, messages) in data.iter() {
-                // Check first message ka server_time (ya sab ka same ho)
                 if let Some(first_msg) = messages.first() {
                     let age = now.signed_duration_since(first_msg.server_time);
-                    if age >= ChronoDuration::minutes(10) {
+                    if age >= ChronoDuration::minutes(3) {
                         println!("⏰ Key `{}` expired ({} messages)", key, messages.len());
-                        // Har message apne apne id ke collection me insert hoga
-                        for _ in messages {
-                            // ✅ Saare messages ek hi insert_many se bhejo
-                            // collection ka naam messages[0].id se le rahe hain
-                            let coll = db
-                                .database("zyra") // apni DB ka naam
-                                .collection::<Message>(&first_msg.id);
 
-                            if let Err(e) = coll.insert_many(messages.clone()).await {
-                                eprintln!("❌ InsertMany error for {}: {}", first_msg.id, e);
-                            }
+                        let coll = db
+                            .database("zyradb") // apni DB ka naam
+                            .collection::<Message>(&first_msg.username);
+
+                        // ✅ Ab yahan sirf ek baar insert_many call karen
+                        if let Err(e) = coll.insert_many(messages.clone()).await {
+                            eprintln!("❌ InsertMany error for {}: {}", first_msg.username, e);
                         }
 
                         expired_keys.push(key.clone());
@@ -89,7 +86,6 @@ async fn background_worker(state: AppState) {
                 }
             }
 
-            // Expired keys delete kar do
             for key in expired_keys {
                 data.remove(&key);
             }

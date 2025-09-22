@@ -5,9 +5,11 @@ use serde::{Deserialize, Serialize};
 // Assuming these are your structs
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct MessageData {
-    id: String,
-    sender_id: String,
-    receiver_id: String, // Fixed spelling: reciber → receiver
+    message_id: String,
+    message_status: String,
+    username: String,
+    sender_username: String,
+    receiver_username: String, // Fixed spelling: reciber → receiver
     content: String,
     content_type: String,
     time_stamp: String,
@@ -21,13 +23,15 @@ pub async fn add_data(
 ) -> StatusCode {
     let mut guard = state.data.lock().await;
 
-    let conversation_id = format!("{}_{}", data.sender_id, data.receiver_id);
+    let conversation_id = format!("{}", &data.username);
 
     // Create Message from MessageData
     let new_message = Message {
-        id: data.id.clone(),
-        sender_id: data.sender_id,
-        receiver_id: data.receiver_id,
+        message_id: data.message_id,
+        message_status: data.message_status,
+        username: data.username,
+        sender_username: data.sender_username,
+        receiver_username: data.receiver_username,
         content: data.content,
         content_type: data.content_type,
         time_stamp: data.time_stamp,

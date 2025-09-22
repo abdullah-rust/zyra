@@ -9,7 +9,7 @@ import {
 } from "../../database/db";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-
+import sendDound from "../../assets/message-send.mp3";
 export default function ChatWindow({
   activeUser,
   sendmessage,
@@ -19,6 +19,7 @@ export default function ChatWindow({
 
   const [messages, setMessages] = useState([]);
   const [messageInput, setMessageInput] = useState("");
+  const [content_type, setContent_type] = useState("message");
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -39,21 +40,28 @@ export default function ChatWindow({
     // Jab reciveMessages receive ho, to list mein add karo
     if (
       reciveMessages?.content &&
-      activeUser?.username === reciveMessages?.fromUsername
+      activeUser?.username === reciveMessages?.sender_username
     ) {
       const showMessage = {
-        id: uuidv4(),
+        message_id: reciveMessages.message_id,
+        message_status: reciveMessages.message_status,
+        sender_username: reciveMessages.sender_username,
+        receiver_username: reciveMessages.receiver_username,
         content: reciveMessages.content,
-        sender: "other",
-        created_at: new Date().toISOString(),
+        content_type: reciveMessages.content_type,
+        sender_type: "other",
+        time_stamp: new Date().toISOString(),
         read: true,
       };
+
       setMessages((prev) => [...prev, showMessage]);
 
       const save = async () =>
         await addMessage(activeUser.username, showMessage);
       save();
     }
+
+    reciveMessages = "";
   }, [reciveMessages, activeUser]); // Dependencies updated
 
   useEffect(() => {
@@ -71,21 +79,28 @@ export default function ChatWindow({
   const handleSendMessage = async (e) => {
     e.preventDefault();
     if (messageInput.trim() === "") return;
-    const me = localStorage.getItem("username");
-
+    const MyUsername = localStorage.getItem("username");
+    const message_id = uuidv4();
     const newMessage = {
-      toUsername: activeUser.username,
-      fromUsername: me,
+      message_id: message_id,
+      message_status: "sent",
+      sender_username: MyUsername,
+      receiver_username: activeUser.username,
       content: messageInput,
+      content_type: content_type,
+      sender_type: "user",
     };
 
     sendmessage(newMessage);
-
     const showMessage = {
-      id: uuidv4(),
+      message_id: message_id,
+      message_status: "sent",
+      sender_username: MyUsername,
+      receiver_username: activeUser.username,
       content: messageInput,
-      sender: "user",
-      created_at: new Date().toISOString(),
+      content_type: content_type,
+      sender_type: "user",
+      time_stamp: new Date().toISOString(),
       read: true,
     };
 
@@ -113,16 +128,16 @@ export default function ChatWindow({
         {messages
           ? messages.map((msg) => (
               <div
-                key={msg.id}
+                key={msg.message_id}
                 className={`${styles.messageItem} ${
-                  msg.sender === "user"
+                  msg.sender_type === "user"
                     ? styles.userMessage
                     : styles.otherMessage
                 }`}
               >
                 <p>{msg.content}</p>
                 <span className={styles.date}>
-                  {dayjs(msg.created_at).fromNow()}
+                  {dayjs(msg.time_stamp).fromNow()}
                 </span>
               </div>
             ))
