@@ -6,7 +6,6 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct MessageData {
     message_id: String,
-    message_status: String,
     username: String,
     sender_username: String,
     receiver_username: String, // Fixed spelling: reciber → receiver
@@ -28,7 +27,6 @@ pub async fn add_data(
     // Create Message from MessageData
     let new_message = Message {
         message_id: data.message_id,
-        message_status: data.message_status,
         username: data.username,
         sender_username: data.sender_username,
         receiver_username: data.receiver_username,

@@ -15,7 +15,6 @@ mod routes;
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Message {
     pub message_id: String,
-    pub message_status: String,
     pub username: String,
     pub sender_username: String,
     pub receiver_username: String,

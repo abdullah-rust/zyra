@@ -46,7 +46,7 @@ export async function OkLogin(
     // fetch data from redis (verification code + user info)
     const fetchFromRedis: Login | null = await getVerificationCode(data.email);
 
-    if (!fetchFromRedis) {
+    if (fetchFromRedis == null) {
       return res.status(400).json({ message: "code expired" });
     }
 

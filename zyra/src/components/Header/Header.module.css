@@ -1,0 +1,71 @@
+/* Header Wrapper: Fixed top bar for mobile */
+.headerWrapper {
+  /* Secondary Background color for the header bar */
+  background-color: var(--color-secondary-bg);
+
+  /* Sticky/Fixed on mobile top */
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Taake yeh sabse upar rahe */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between profile, name, and spacer */
+
+  padding: 1rem 1.2rem; /* Thoda zyada padding for premium feel */
+  height: 60px; /* Header ki fixed height */
+
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  /* Subtle Shadow for Depth (optional, agar zaroorat ho to use karein) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Profile Icon Styling */
+.profileIcon {
+  font-size: 1.5rem;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+  /* Profile icon par Neon Green ka halka sa ring/border */
+  border: 2px solid var(--color-accent-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profileIcon:active {
+  transform: scale(0.95);
+}
+
+/* App Name Container */
+.appName h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Spacer: Right side ko balance karne ke liye */
+.spacer {
+  width: 35px; /* Profile icon jitna hi width rakhte hain */
+}
+
+/* --- Gradient Text Magic --- */
+.gradientText {
+  /* Background clip text to show the gradient only in the text */
+  background: linear-gradient(
+    45deg,
+    var(--color-accent-primary) 30%,
+    /* Neon Green */ var(--color-accent-secondary) 100% /* Vibrant Cyan */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Fallback for browsers that don't support text-fill-color */
+  color: var(--color-accent-primary);
+}

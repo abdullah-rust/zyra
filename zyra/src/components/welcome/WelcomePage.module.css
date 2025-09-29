@@ -1,0 +1,89 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 2rem;
+  min-height: 100vh;
+
+  background: var(--color-base-bg);
+  color: var(--color-text-main);
+}
+
+/* Gradient Heading */
+.gradientText {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+
+  background: linear-gradient(
+    45deg,
+    var(--color-accent-primary) 30%,
+    var(--color-accent-secondary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Description text */
+.description {
+  font-size: 1rem;
+  max-width: 350px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  color: var(--color-text-subtle);
+}
+
+.description span {
+  color: var(--color-accent-primary);
+  font-weight: 600;
+}
+
+/* Button Group */
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  width: 100%;
+  max-width: 250px;
+}
+
+/* Primary Button */
+.primaryBtn {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-primary),
+    var(--color-accent-secondary)
+  );
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 230, 118, 0.4);
+}
+
+/* Secondary Button */
+.secondaryBtn {
+  background: transparent;
+  border: 2px solid var(--color-accent-secondary);
+  color: var(--color-accent-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+  background: var(--color-accent-secondary);
+  color: #000;
+  transform: translateY(-2px);
+}

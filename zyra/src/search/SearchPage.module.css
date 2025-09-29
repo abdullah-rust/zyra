@@ -1,0 +1,182 @@
+.wrapper {
+  padding: 1.5rem 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Title */
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(
+    45deg,
+    var(--color-accent-primary),
+    var(--color-accent-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Form */
+.form {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* 📱 mobile friendly */
+}
+
+.input {
+  flex: 1;
+  min-width: 200px;
+  max-width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  border: 2px solid var(--color-accent-primary);
+  background-color: var(--color-secondary-bg);
+  color: var(--color-text-main);
+  outline: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--color-accent-secondary);
+  box-shadow: 0 0 6px var(--color-accent-secondary);
+}
+
+.searchBtn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: linear-gradient(
+    45deg,
+    var(--color-accent-primary),
+    var(--color-accent-secondary)
+  );
+  color: #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.searchBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 236, 190, 0.4);
+}
+
+/* Error */
+.error {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Results */
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* User Card */
+.userCard {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-secondary-bg);
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  gap: 0.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.userCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 236, 190, 0.25);
+}
+
+/* Avatar */
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--color-base-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid var(--color-accent-primary);
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent-primary);
+}
+
+/* Info */
+.info {
+  text-align: left;
+  flex: 1;
+}
+
+.name {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.username {
+  font-size: 0.85rem;
+  color: var(--color-text-subtle);
+  margin: 0.2rem 0;
+}
+
+.bio {
+  font-size: 0.85rem;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+/* 📱 Mobile Tweaks */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .input {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  .searchBtn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .name {
+    font-size: 0.95rem;
+  }
+
+  .username,
+  .bio {
+    font-size: 0.8rem;
+  }
+}

@@ -21,6 +21,7 @@ export async function checkJwt(
 
   try {
     const decodeaccess = await verifyAccessToken(accessToken);
+
     if (decodeaccess) {
       (socket as any).user = {
         userId: decodeaccess.userId,

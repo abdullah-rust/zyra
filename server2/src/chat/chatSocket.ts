@@ -7,7 +7,6 @@ import axios from "axios";
 // Interface for messages
 interface Message {
   message_id: string;
-  message_status: string;
   sender_username: string;
   receiver_username: string;
   content: string;
