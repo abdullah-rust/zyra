@@ -1,0 +1,240 @@
+.backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.modal {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: rgba(25, 25, 35, 0.98) !important;
+  backdrop-filter: blur(30px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 24px !important;
+  padding: 40px 32px !important;
+  width: 420px !important;
+  max-width: 90vw !important;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  z-index: 100000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+.closeButton {
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(20px) !important;
+  z-index: 100001 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  transform: scale(1.1) !important;
+}
+
+.avatarContainer {
+  margin-bottom: 24px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.avatarImage {
+  width: 130px !important;
+  height: 130px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 4px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.avatarPlaceholder {
+  width: 130px !important;
+  height: 130px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #7b5fff, #00c6ff) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 48px !important;
+  font-weight: 700 !important;
+  color: white !important;
+  border: 4px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 12px 40px rgba(123, 95, 255, 0.4) !important;
+}
+
+.userInfo {
+  margin-bottom: 32px !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.userName {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  margin: 0 0 8px 0 !important;
+  background: linear-gradient(135deg, #fff, #a5b4fc) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+}
+
+.username {
+  font-size: 18px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin: 0 0 24px 0 !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+}
+
+.bio {
+  font-size: 16px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.editButton {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  background: linear-gradient(135deg, #7b5fff, #6366f1) !important;
+  border: none !important;
+  border-radius: 20px !important;
+  padding: 16px 32px !important;
+  color: white !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 8px 30px rgba(123, 95, 255, 0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  margin: 0 !important;
+}
+
+.editButton:hover {
+  box-shadow: 0 12px 40px rgba(123, 95, 255, 0.6) !important;
+  transform: translateY(-3px) !important;
+}
+
+.editIcon {
+  font-size: 18px !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .modal {
+    width: 95vw !important;
+    padding: 32px 24px !important;
+    border-radius: 20px !important;
+  }
+
+  .avatarImage,
+  .avatarPlaceholder {
+    width: 110px !important;
+    height: 110px !important;
+    font-size: 40px !important;
+  }
+
+  .userName {
+    font-size: 28px !important;
+  }
+
+  .username {
+    font-size: 16px !important;
+  }
+
+  .editButton {
+    padding: 14px 28px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .modal {
+    width: 98vw !important;
+    padding: 24px 20px !important;
+  }
+
+  .avatarImage,
+  .avatarPlaceholder {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 36px !important;
+  }
+
+  .userName {
+    font-size: 24px !important;
+  }
+}
+
+/* Existing styles ke saath yeh add karo */
+
+.emailSection {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin: 12px 0 20px 0 !important;
+  padding: 12px 16px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+.emailIcon {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 16px !important;
+}
+
+.email {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}

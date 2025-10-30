@@ -1,0 +1,40 @@
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Poori screen ko cover kare */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(
+    --color-primary-dark
+  ); /* App ka standard dark background */
+  z-index: 1000; /* Baaki sabke upar rahe */
+}
+
+.dotContainer {
+  width: 60px; /* Container ki width */
+  height: 15px; /* Dots ki height/vertical space */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Taake animation neeche se shuru ho */
+}
+
+.dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-accent-blue); /* Aapka blue accent color */
+  transform-origin: bottom center; /* Animation neeche se shuru ho */
+}
+
+.loadingText {
+  margin-top: 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  letter-spacing: 1px;
+}

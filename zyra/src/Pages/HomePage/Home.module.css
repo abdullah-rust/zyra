@@ -1,0 +1,142 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2d1b69 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main Screen - FIXED HEIGHT */
+.mainScreen {
+  width: 95%;
+  max-width: 1400px;
+  height: 90vh; /* Fixed height */
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 2.5rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Important */
+  position: relative;
+  z-index: 10;
+}
+
+/* Body Layout - FIXED */
+.body {
+  display: flex;
+  flex: 1;
+  min-height: 0; /* IMPORTANT: Flexbox scroll ke liye */
+  position: relative;
+}
+/* Sidebar glass */
+.sidebar {
+  width: 30%;
+  background: rgba(255, 255, 255, 0.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+}
+
+/* Chat window glass */
+.chatWindow {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating Elements (Static, no animation) */
+.floatingElement1,
+.floatingElement2,
+.floatingElement3 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.floatingElement1 {
+  top: 10%;
+  right: 5%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(120, 119, 198, 0.1) 0%,
+    transparent 70%
+  );
+}
+
+.floatingElement2 {
+  bottom: 15%;
+  left: 5%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 119, 198, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+.floatingElement3 {
+  top: 50%;
+  right: 15%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(120, 219, 255, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+/* Grid Overlay removed for CPU optimization */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mainScreen {
+    width: 98%;
+    height: 95vh;
+    border-radius: 1.5rem;
+  }
+
+  .sidebar {
+    width: 40%;
+  }
+
+  .floatingElement1,
+  .floatingElement2,
+  .floatingElement3 {
+    display: none;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

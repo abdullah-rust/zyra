@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  /* === Premium Dark Theme Colors === */
+  --color-primary-dark: #121212; /* Deep Black Background (Base) */
+  --color-secondary-dark: #1f1f1f; /* Card/Container Background */
+  --color-tertiary-dark: #2a2a2a; /* Input field background */
+
+  --color-accent-blue: #007bff; /* Primary Chat/Action Color */
+  --color-accent-hover: #0056b3; /* Hover/Active state */
+
+  --color-text-light: #e0e0e0; /* Main Text Color */
+  --color-text-secondary: #a0a0a0; /* Subdued Text */
+
+  /* === Spacing & Radius === */
+  --spacing-unit: 8px;
+  --border-radius-base: 12px;
+  --border-radius-small: 6px;
+
+  /* === Typography === */
+  --font-family-base: "Inter", sans-serif;
+  --font-size-base: 1rem;
+}
+
+/* 1. Global Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Base Styling */
+html,
+body,
+#root {
+  height: 100%;
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-light);
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Buttons, links, inputs transitions */
+button,
+a,
+input {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* Body aur root elements ko proper height dein */
+/* Body aur root elements ko proper height dein */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; REMOVE THIS LINE */
+  position: relative; /* Add this */
+}

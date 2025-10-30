@@ -1,0 +1,162 @@
+/* Note: Yeh file OTPVerificationPage.tsx ke paas hi honi chahiye */
+
+.otpContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: var(--color-primary-dark);
+  position: relative;
+}
+
+/* --- Header & Title --- */
+.headerIcon {
+  color: var(--color-accent-blue);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--color-text-light);
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1rem;
+}
+
+/* --- Back Button --- */
+.backButton {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: none;
+  color: var(--color-text-light);
+  border-radius: var(--border-radius-base);
+  padding: var(--spacing-unit);
+}
+
+.backButton:hover {
+  color: var(--color-accent-blue);
+}
+
+/* --- Form Styling --- */
+.otpForm {
+  width: 100%;
+  max-width: 450px;
+  background: var(--color-secondary-dark);
+  padding: 30px;
+  border-radius: var(--border-radius-base);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- OTP Inputs Container --- */
+.otpInputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* --- Single OTP Input Box --- */
+.otpInputBox {
+  width: 45px; /* Fixed width for a good look */
+  height: 55px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-light);
+  background-color: var(--color-tertiary-dark);
+  border: 2px solid var(--color-tertiary-dark);
+  border-radius: var(--border-radius-small);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  /* Hide default number input controls */
+  -moz-appearance: textfield;
+}
+
+.otpInputBox:focus {
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+/* --- Verify Button --- */
+.verifyButton {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--color-accent-blue);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.verifyButton:disabled {
+  background-color: #383838; /* Faint color when disabled */
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.verifyButton:hover:not(:disabled) {
+  background-color: var(--color-accent-hover);
+}
+
+/* --- Resend Action --- */
+.resendAction {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.resendButton {
+  background: none;
+  color: var(--color-accent-blue);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.resendButton:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.resendButton:disabled {
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* --- Mobile Responsiveness (Adjusting box size) --- */
+@media (max-width: 400px) {
+  .otpInputs {
+    gap: 8px;
+  }
+  .otpInputBox {
+    width: 40px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+}
