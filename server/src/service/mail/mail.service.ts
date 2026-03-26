@@ -1,22 +1,20 @@
 import nodemailer from "nodemailer";
 
-// 1. Transporter configuration
-// Is mein tum Gmail ya kisi bhi SMTP service (jaise Mailtrap) ki details dalo ge
+
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST || "smtp.gmail.com",
   port: Number(process.env.MAIL_PORT) || 587,
   secure: false, // true for 465, false for other ports
   auth: {
-    user: process.env.MAIL_USER, // Tumhara email
-    pass: process.env.MAIL_PASS, // Tumhara app password
+    user: process.env.MAIL_USER, 
+    pass: process.env.MAIL_PASS, 
   },
 });
 
 export const MailService = {
   /**
-   * OTP Bhejne ka function
-   * @param to - Jis ko email bhejni hai
-   * @param otp - Wo code jo generate kiya hai
+   * @param to 
+   * @param otp 
    */
   sendOTP: async (to: string, otp: string): Promise<boolean> => {
     try {
@@ -31,7 +29,7 @@ export const MailService = {
             <div style="background: #f4f4f4; padding: 10px; font-size: 24px; font-weight: bold; text-align: center; letter-spacing: 5px; color: #000;">
               ${otp}
             </div>
-            <p style="margin-top: 20px;">Ye code 5 minutes ke liye valid hai. Kisi ke sath share na karein.</p>
+            <p style="margin-top: 20px;">This code is for 5 minutes. Do not share it with anyone.</p>
           </div>
         `, // HTML body
       };

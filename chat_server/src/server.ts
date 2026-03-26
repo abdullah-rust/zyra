@@ -13,7 +13,7 @@ import { checkJwt } from "./middleware/check.jwt";
 dotenv.config();
 
 const app: Express = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 
 const httpServer = createServer(app);
 

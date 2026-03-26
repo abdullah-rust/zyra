@@ -5,6 +5,7 @@ import { ForgetPassword } from "../controllers/auth/fogetPasswor";
 import { OTP } from "../controllers/auth/otp";
 import { ChangePassword } from "../controllers/auth/forgetPSW.otp";
 import { rateLimit } from "express-rate-limit";
+import { refreshTokenHandler } from "../controllers/auth/refreshToken";
 
 export const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -24,3 +25,4 @@ authRouter.post("/signup", authLimiter, Signup);
 authRouter.post("/forgot-password", authLimiter, ForgetPassword);
 authRouter.post("/otp", authLimiter, OTP);
 authRouter.post("/change-password", authLimiter, ChangePassword);
+authRouter.get("/refresh", refreshTokenHandler);
